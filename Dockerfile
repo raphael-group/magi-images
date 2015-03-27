@@ -24,7 +24,7 @@ RUN adduser --disabled-password --gecos 'Magi Administrator' melchior && \
 # python is required for npm install
 RUN apt-get update && apt-get install -y \
   nginx \
-  apache2-utils && \
+  apache2-utils 
 
 # switch to magi user
 USER melchior 
