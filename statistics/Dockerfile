@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 EXPOSE 8888
 # todo: replace with github once public server is available
-COPY magi-stats-server /src
+COPY src /src
 
 #CMD ["python", "/src/statserver.py", "--port", "8888"]
 

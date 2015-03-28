@@ -1,0 +1,3 @@
+[submodule "statistics/src"]
+	path = statistics/src
+	url = https://johndashen@bitbucket.org/raphaellab/magi-stats-server.git

@@ -8,7 +8,7 @@ This Docker image automatically installs the prerequisites for MAGI within its o
 # Background
 The image runs nginx as a reverse proxy to port 8000 within the container.  MAGI listens on port 8000.  
 The MAGI container requires links to two other docker containers for full functionality, mongo and a statistics server.
-The statistics server can be found at [magi-images/statistics](https://github.com/johndashen/magi-images/statistics).  
+The statistics server can be found at [magi-images/statistics](https://github.com/johndashen/tree/magi-images/statistics).  
 
 # Usage
 
@@ -36,6 +36,7 @@ MAGI uses the Google OAuth2 protocol for authentication. To set up authenticatio
 
 1. Visit the [Google OAuth2 documentation](https://developers.google.com/accounts/docs/OAuth2) and obtain credentials.  When you apply, list the exact URL of the site as the Javascript origin and the exact URL followed by "auth/google/callback"  
 2. Fill in the following fields in local.env with the resulting data:
+
 * GOOGLE_CLIENT_ID
 * GOOGLE_CLIENT_SECRET 
 
