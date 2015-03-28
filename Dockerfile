@@ -45,7 +45,7 @@ RUN cd ~melchior/magi/public/components/ && \
   git clone https://github.com/raphael-group/gd3
 
 # copy the startup script and run it
-COPY load-magi.sh ~melchior/magi/db
+COPY load-TCGA-data.sh ~melchior/magi/db
 
 # need to add the environment variable handle to MONGO_HOST before running
 #CMD ./load-magi.sh 

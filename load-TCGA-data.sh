@@ -7,7 +7,7 @@ while ! nc -zw2 $MONGO_HOST $MONGO_PORT; do sleep 11; done
 echo "done."
 
 # for loading the MAGI STAD
-# todo: stuff in another script
+
 cd ~melchior/magi/db
 node loadGenome.js --genome_file=../data/genome/hg19_genes_list.tsv
 node loadCancers.js --cancers_file=../data/icgc-tcga-cancers.tsv
@@ -23,7 +23,3 @@ echo "Done loading standard datasets..."
 bash loadPublicDatasets.sh
 cd ..
 
-sudo /etc/init.d/nginx start
-
-# start the server 
-node --harmony server.js
