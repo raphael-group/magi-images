@@ -34,22 +34,12 @@ Likewise, The ENRICHMENT_HOST and ENRICHMENT_PORT should contain the IP address 
 
 MAGI uses the Google OAuth2 protocol for authentication. To set up authentication on your own personal version of MAGI:
 
-1. Visit the [Google OAuth2 documentation](https://developers.google.com/accounts/docs/OAuth2) and obtain credentials.
-2. Create a JSON file `oauth2.js` with the following format:
+1. Visit the [Google OAuth2 documentation](https://developers.google.com/accounts/docs/OAuth2) and obtain credentials.  When you apply, list the exact URL of the site as the Javascript origin and the exact URL followed by "auth/google/callback"  
+2. Fill in the following fields in local.env with the resulting data:
+* GOOGLE_CLIENT_ID
+* GOOGLE_CLIENT_SECRET 
 
-        var ids = {
-        	google: {
-        		clientID: "YOUR_CLIENT_ID",
-        		clientSecret: "YOUR_CLIENT_SECRET",
-        		callbackURLSuffix: "auth/google/callback"
-        	}
-        }
-
-        module.exports = ids
-
-If you do not set up authentication, you will not be able to use the `/upload` feature, and attempting to "Login via Google" will result in server errors. You will, however, be able to view public datasets and upload additional datasets to MongoDB from the command line.Annotations are done with Google OAuth2.  To enable Google authentication, sign up for [OAuth2](https://developers.google.com/accounts/docs/OAuth2) credentials at the [Google Developers console](http://console.developers.google.com).  When applying for credentials, for the Javascript origin, give the exact URL of the site.  For the redirect URI, give the URL origin, followed by "auth/google/callback".  
-
-Then fill in the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET with the given credentials before running the image.
+If you do not set up authentication, you will not be able to use the `/upload` feature, and attempting to "Login via Google" will result in server errors. You will, however, be able to view public datasets and upload additional datasets to MongoDB from the command line.Annotations are done with Google OAuth2. 
 
 # Loading data
 

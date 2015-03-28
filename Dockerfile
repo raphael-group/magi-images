@@ -46,6 +46,3 @@ RUN cd ~melchior/magi/public/components/ && \
 
 # copy the startup script and run it
 COPY load-TCGA-data.sh ~melchior/magi/db
-
-# need to add the environment variable handle to MONGO_HOST before running
-#CMD ./load-magi.sh 
