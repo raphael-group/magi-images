@@ -8,7 +8,7 @@ This Docker image automatically installs the prerequisites for MAGI within its o
 # Background
 The image runs nginx as a reverse proxy to port 8000 within the container.  MAGI listens on port 8000.  
 The MAGI container requires links to two other docker containers for full functionality, mongo and a statistics server.
-The statistics server can be found at (github.com/johndashen/magi-images/statistics).
+The statistics server can be found at [magi-images/statistics](https://github.com/johndashen/magi-images/statistics)..  
 
 # Usage
 
