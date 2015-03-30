@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function error {
-  echo $1 && exit 1
+  echo $1 && exit 0 
 }
 
 nc -zw2 mongo 27017 || error "Mongo database not available, exiting..."
