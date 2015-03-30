@@ -18,8 +18,8 @@ docker run -d --name mongo mongo
 docker run -d --name enricher magi:stats-server
 docker run --link mongo:mongo --link enricher:statserver -p --env-file=local.env 80:80 magi
 ```
-
-The web application can then be viewed at localhost:80.  
+Alternately, you can run start.sh from the host machine. 
+In either case, the web application can then be viewed at localhost:80.  
 
 #### Environment variables ####
 There are various items that are configured in the local.env file.

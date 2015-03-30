@@ -44,5 +44,10 @@ RUN cd ~melchior/magi && \
 RUN cd ~melchior/magi/public/components/ && \
   git clone https://github.com/raphael-group/gd3
 
-# copy the startup script and run it
+# copy the loading script
 COPY load-TCGA-data.sh ~melchior/magi/db
+
+# copy the startup script and run it 
+COPY run-server.sh ~melchior
+
+RUN ~melchior/run-server.sh

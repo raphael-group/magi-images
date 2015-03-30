@@ -6,13 +6,11 @@ RUN apt-get update && \
  apt-get install -y liblapack-dev \
  libblas-dev \
  gfortran \
- python-dev  
+ python-dev && \
+ git clone https://github.com/raphael-group/magi-stat-server.git src
 
-#RUN pip install tornado numpy scipy scikit-learn requests
-
-EXPOSE 8888
+EXPOSE 8888 
 # todo: replace with github once public server is available
-COPY src /src
 
-#CMD ["python", "/src/statserver.py", "--port", "8888"]
+CMD ["python", "/src/statserver.py", "--port", "8888"]
 
