@@ -50,4 +50,4 @@ COPY load-TCGA-data.sh /home/melchior/magi/db/
 # copy the startup script and run it 
 COPY run-server.sh /home/melchior/
 
-RUN ~melchior/run-server.sh
+CMD ~melchior/run-server.sh
