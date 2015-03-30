@@ -7,6 +7,7 @@ RUN apt-get update && \
  libblas-dev \
  gfortran \
  python-dev && \
+ pip install tornado numpy scipy requests scikit-learn && \
  git clone https://github.com/raphael-group/magi-stat-server.git src
 
 EXPOSE 8888 
