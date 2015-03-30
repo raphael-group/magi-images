@@ -14,7 +14,7 @@
 
 ### parse the command line as above
 MAGI_PORT=80 # the outside port
-CONTAINER_NAME="magi"
+IMAGE_NAME="magi:latest"
 MOUNT_DB="" # the directory to mount mongo's db
 
 if [[ $# > 0 ]]
@@ -22,7 +22,7 @@ if [[ $# > 0 ]]
 	shift
 
 if [[ $# > 0 ]] 
-	CONTAINER_NAME=$1
+	IMAGE_NAME=$1
 	shift
 
 if [[ $# > 0 ]]
@@ -30,21 +30,21 @@ if [[ $# > 0 ]]
 	shift
 
 # names of the containers
-MONGO_CONTAINER="magi-mongo"
-STAT_CONTAINER="magis-tats"
+MONGO_CONTAINER_NAME="magi-mongo"
+STAT_CONTAINER_NAME="magi-stats"
 
 # build the magi container 
-docker build --force-rm=true --tag="$CONTAINER_NAME" .
+docker build --force-rm=true --tag="$IMAGE_NAME" .
 
 # start the other services if they aren't already there
-existing_mongo=$(docker ps -q -f "name=$MONGO_CONTAINER")
+existing_mongo=$(docker ps -q -f "name=$MONGO_CONTAINER_NAME")
 if [[ -z existing_mongo ]]  
 	# run mongo with a directory to mount from outside, if available
-	docker run -d -v "$MOUNT_DB":/data/db --name $MONGO_CONTAINER mongo
+	docker run -d -v "$MOUNT_DB":/data/db --name $MONGO_CONTAINER_NAME mongo
 
-existing_enricher=$(docker ps -q -f "name=$STAT_CONTAINER")
+existing_enricher=$(docker ps -q -f "name=$STAT_CONTAINER_NAME")
 if [[ -z existing_enricher ]]
-	docker run -d --name enricher $STAT_CONTAINER
+	docker run -d --name $STAT_CONTAINER_NAME magi:stat-server
  
 # wrap the command within an interactive docker container
 dockercmd = "docker run -i -t --env-file=local.env"
@@ -54,7 +54,7 @@ dockercmd += "-p $MAGI_PORT:80"
 
 # link the mongo and enrichment stats ontainer 
 # this adds the ip addresses of the containers into our /etc/hosts
-dockercmd += "--link $MONGO_CONTAINER:mongo --link $STAT_CONTAINER:statserver" 
+dockercmd += "--link $MONGO_CONTAINER_NAME:mongo --link $STAT_CONTAINER_NAME:statserver" 
 
 # run the dockerfile
-"$dockercmd" $CONTAINER_NAME 
+"$dockercmd" $IMAGE_NAME 
