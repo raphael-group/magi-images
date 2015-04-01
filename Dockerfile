@@ -37,7 +37,7 @@ RUN cd ~ && git clone https://github.com/raphael-group/magi.git magi && \
 # add npm packages for magi
 # git config url is for bower install - for some reason it stalls out on some repos
 # better to change the bowerirc
-RUN git config --global url."https://".insteadOf git:// && \
+RUN cd ~melchior/magi && git config --global url."https://".insteadOf git:// && \
  npm install && \
  sudo npm -g install forever 
 
