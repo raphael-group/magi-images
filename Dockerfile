@@ -29,14 +29,15 @@ RUN apt-get update && apt-get install -y \
 # switch to magi user
 USER melchior 
 
-# clone most recent magi build from git
-RUN cd ~ && git clone https://github.com/raphael-group/magi.git magi
+# clone versioned magi build from git
+RUN cd ~ && git clone https://github.com/raphael-group/magi.git magi && \
+ cd ~melchior/magi && git checkout tags/v0.0.1
 
+# we should 
 # add npm packages for magi
 # git config url is for bower install - for some reason it stalls out on some repos
 # better to change the bowerirc
-RUN cd ~melchior/magi && \
- git config --global url."https://".insteadOf git:// && \
+RUN git config --global url."https://".insteadOf git:// && \
  npm install && \
  sudo npm -g install forever 
 
