@@ -10,7 +10,7 @@ nc -zw2 statserver $ENRICHMENT_PORT || error "Statistics server not available, e
 sudo /etc/init.d/nginx start 
 echo "Starting server with forever" 
 
-LOGFILE="cobra-server.log"
+LOGFILE="server.log"
 forever start -c "node --harmony" -l $LOGFILE ~/magi/server.js 
 echo "Writing server output to ~/.forever/$LOGFILE"
 bash

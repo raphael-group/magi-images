@@ -48,6 +48,9 @@ RUN cd ~melchior/magi/public/components/ && \
 # copy the loading script
 COPY load-TCGA-data.sh /home/melchior/magi/db/
 
+# copy the nginx conf file
+COPY magi-site.conf /etc/nginx/conf.d/
+
 # copy the startup script and run it 
 COPY run-server.sh /home/melchior/
 
