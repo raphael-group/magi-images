@@ -31,7 +31,7 @@ USER melchior
 
 # clone versioned magi build from git
 RUN cd ~ && git clone https://github.com/raphael-group/magi.git magi && \
- cd ~melchior/magi && git checkout tags/v0.0.1
+ cd ~melchior/magi && git checkout tags/v0.0.2
 
 # we should 
 # add npm packages for magi
