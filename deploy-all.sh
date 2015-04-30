@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script builds and then starts the MAGI site
 # 
-# Usage: ./start.sh [port] [image_name] [db_directory]
+# Usage: ./deploy-all.sh [port] [image_name] [db_directory]
 #
 # port: The host machine port for MAGI to listen on
 # image_name: The name of the docker image, use an existing container to skip the build step
